@@ -194,7 +194,7 @@ with st.form(key='assessment_form'):
     sent=st.form_submit_button(label='Send')
 
 if sent:
-    st.success("Assessment sent successfully!")
+    st.success("Assessment sent successfully!. Thanks")
     st.write(f"Teacher Name: {teacher_name}")
     st.write(f"Subject(s): {subject}")
     st.write(f"Date for Classroom Observation: {observation_date}")
@@ -214,7 +214,7 @@ if sent:
     conn.commit()
 
 if submitted:
-    st.success("Assessment was checked the score")
+    st.success("You have checked the score, then please kindly press Send Button")
     st.write(f"Teacher Name: {teacher_name}")
     st.write(f"Subject(s): {subject}")
     st.write(f"Date for Classroom Observation: {observation_date}")
