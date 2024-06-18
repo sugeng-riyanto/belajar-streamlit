@@ -191,7 +191,7 @@ with st.form(key='assessment_form'):
 
     # Submit button
     submitted = st.form_submit_button(label='Check')
-    sent=st.form.form_submit_button(label='Send')
+    sent=st.form_submit_button(label='Send')
 
 if sent:
     st.success("Assessment sent successfully!")
