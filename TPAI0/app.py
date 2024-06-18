@@ -214,7 +214,7 @@ if sent:
     conn.commit()
 
 if submitted:
-    st.success("Assessment submitted successfully!")
+    st.success("Assessment was checked the score")
     st.write(f"Teacher Name: {teacher_name}")
     st.write(f"Subject(s): {subject}")
     st.write(f"Date for Classroom Observation: {observation_date}")
