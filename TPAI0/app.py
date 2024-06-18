@@ -178,7 +178,7 @@ with st.form(key='assessment_form'):
         max_section_score = len(subsections[section]) * 4
 
         for item in subsections[section]:
-            score = st.slider(item, 0, 4, 0, key=f"{section}_{item}")
+            score = st.slider(item, 0, 4, 3, key=f"{section}_{item}")
             total_section_score += score
 
         weighted_section_score = (total_section_score / max_section_score) * weight
