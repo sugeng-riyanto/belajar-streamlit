@@ -190,10 +190,11 @@ with st.form(key='assessment_form'):
     st.write(f"Overall Rating: {interpret_score(st.session_state.total_score)}")
 
     # Submit button
-    submitted = st.form_submit_button(label='Submit')
+    submitted = st.form_submit_button(label='Check')
+    sent=st.form.form_submit_button(label='Send')
 
-if submitted:
-    st.success("Assessment submitted successfully!")
+if sent:
+    st.success("Assessment sent successfully!")
     st.write(f"Teacher Name: {teacher_name}")
     st.write(f"Subject(s): {subject}")
     st.write(f"Date for Classroom Observation: {observation_date}")
@@ -211,6 +212,20 @@ if submitted:
         VALUES (?, ?, ?, ?, ?, ?)
     ''', (teacher_name, subject, str(observation_date), str(observation_time), st.session_state.total_score, interpret_score(st.session_state.total_score)))
     conn.commit()
+
+if submitted:
+    st.success("Assessment submitted successfully!")
+    st.write(f"Teacher Name: {teacher_name}")
+    st.write(f"Subject(s): {subject}")
+    st.write(f"Date for Classroom Observation: {observation_date}")
+    st.write(f"Time for Classroom Observation: {observation_time}")
+    st.write("### Section Scores")
+    for section, score in st.session_state.section_scores.items():
+        st.write(f"{section}: {score:.2f}")
+    st.write("### Overall Score")
+    st.write(f"Total Score: {st.session_state.total_score:.2f} / 100")
+    st.write(f"Overall Rating: {interpret_score(st.session_state.total_score)}")
+
 
 # Close the database connection
 conn.close()
